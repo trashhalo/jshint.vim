@@ -169,7 +169,12 @@ function! s:JSHint()
     return
   endif
 
-  let b:jshint_output = system(s:cmd . " " . s:jshintrc_file, lines . "\n")
+  if exists("b:jshintrc_file")
+      let b:jshint_output = system(s:cmd . " " . b:jshintrc_file, lines . "\n")
+  else
+      let b:jshint_output = system(s:cmd . " " . s:jshintrc_file, lines . "\n")
+  endif
+
   if v:shell_error
     echoerr 'could not invoke JSHint: '
     echom b:jshint_output
