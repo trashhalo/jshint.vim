@@ -67,6 +67,10 @@ Once an error is fixed the corresponding quickfix line will disappear.
 
 `let g:JSHintHighlightErrorLine = 0`
 
+#### Override the jshintrc file for certain extensions
+
+`au BufRead,BufNewFile *.es6 let b:jshintrc_file=getcwd() . "/.jshintrc.es6"`
+
 ### JSHint options
 
 Add any valid JSHint options to a `~/.jshintrc` file. These options will be used as global options for all JavaScript files. There is an example file at [Official Example](https://github.com/jshint/jshint/blob/master/examples/.jshintrc)
